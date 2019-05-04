@@ -19,7 +19,7 @@ gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
-# temporarily user master to get rid of deprecation warnings in tests (until next version of jbuilder is released)
+# temporarily use master to get rid of deprecation warnings in tests (until next version of jbuilder is released)
 gem 'jbuilder', github: 'rails/jbuilder', branch: 'master'
 
 # Use Redis adapter to run Action Cable in production
