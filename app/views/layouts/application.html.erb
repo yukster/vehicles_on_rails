@@ -10,8 +10,37 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <header>
+      <section class="container">
+        <%= link_to home_index_url do %>
+          <h1>Vehicles on Rails!</h1>
+        <% end %>
+        <nav class="navbar">
+          <ul class="nav">
+          <% if user_signed_in? %>
+            <li class="nav-item"><%= link_to 'Sign Out', destroy_user_session_url, method: 'delete' %></li>
+          <% else %>
+            <li class="nav-item"><%= link_to 'Sign In', new_user_session_url %></li>&nbsp;
+            <li class="nav-item"><%= link_to 'Register', new_user_registration_url %></li>
+          <% end %>
+          </ul>
+        </nav>
+        </section>
+    </header>
+    <section class="container">
+      <section class="container">
+        <% if notice %>
+          <p class="notice alert-info"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+          <p class="alert alert-success"><%= alert %></p>
+        <% end %>
+      </section>
+
+      <section class="main mt5">
+        <%= yield %>
+      </section>
+
+    </section>
   </body>
 </html>

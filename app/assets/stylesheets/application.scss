@@ -10,6 +10,22 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+@import "bootstrap";
+
+header {
+  background-color: rgb(228, 245, 132);
+  padding: 1rem;
+}
+
+section.main {
+  margin-top: 2rem;
+}
+
+// do with bootstrap spacing instead? why is it lame by default?
+p.notice, p.alert {
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+
