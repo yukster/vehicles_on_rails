@@ -14,8 +14,16 @@
 @import "bootstrap";
 
 header {
-  background-color: rgb(228, 245, 132);
+  background-color: rgb(225, 238, 250);
   padding: 1rem;
+}
+
+header a {
+  color: rgb(70, 73, 70);
+}
+
+header a:hover {
+  text-decoration: none;
 }
 
 section.main {
@@ -28,4 +36,20 @@ p.notice, p.alert {
   padding: 1rem;
 }
 
+#error_explanation {
+  padding: 1rem;
+  color: #f00;
+  border: 1px solid #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
 
+#error_explanation h2 {
+  font-size: 1.5rem;
+}
+
+form .field, form .actions {
+  margin-bottom: 1rem;
+}
