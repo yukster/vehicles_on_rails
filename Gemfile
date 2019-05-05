@@ -27,7 +27,9 @@ gem 'jbuilder', github: 'rails/jbuilder', branch: 'master'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'bootstrap'
 gem 'devise'
+gem 'jquery-rails' # required by bootstrap
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
