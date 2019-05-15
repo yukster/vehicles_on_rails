@@ -14,4 +14,5 @@ class ActiveSupport::TestCase
   # the default user fixture blows up with Devise constraints :-p
 
   # Add more helper methods to be used by all tests here...
+  include FactoryBot::Syntax::Methods
 end
