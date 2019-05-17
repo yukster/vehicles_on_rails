@@ -15,9 +15,8 @@
 #  index_vehicle_makes_on_name  (name) UNIQUE
 #
 
-
 # Represents a Vehicle Make
 class VehicleMake < ApplicationRecord
   has_many :vehicle_models
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
 end

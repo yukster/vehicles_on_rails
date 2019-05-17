@@ -23,4 +23,11 @@ class VehicleMakeTest < ActiveSupport::TestCase
     refute make.valid?
     assert_equal "can't be blank", make.errors[:name].first
   end
+
+  test 'name is unique' do
+    make = FactoryBot.create(:vehicle_make)
+    new_make = VehicleMake.new(name: make.name)
+    refute new_make.valid?
+    assert_equal 'has already been taken', new_make.errors[:name].first
+  end
 end

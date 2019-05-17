@@ -25,4 +25,11 @@ class VehicleTrimTest < ActiveSupport::TestCase
     assert_equal "can't be blank", trim.errors[:name].first
     assert_equal 'must exist', trim.errors[:vehicle_model].first
   end
+
+  test 'name is unique' do
+    trim = FactoryBot.create(:vehicle_trim)
+    new_trim = VehicleTrim.new(name: trim.name, vehicle_model: trim.vehicle_model)
+    refute new_trim.valid?
+    assert_equal 'has already been taken', new_trim.errors[:name].first
+  end
 end

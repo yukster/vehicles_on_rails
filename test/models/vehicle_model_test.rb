@@ -25,4 +25,11 @@ class VehicleModelTest < ActiveSupport::TestCase
     assert_equal "can't be blank", model.errors[:name].first
     assert_equal 'must exist', model.errors[:vehicle_make].first
   end
+
+  test 'name is unique' do
+    model = FactoryBot.create(:vehicle_model)
+    new_model = VehicleModel.new(name: model.name, vehicle_make: model.vehicle_make)
+    refute new_model.valid?
+    assert_equal 'has already been taken', new_model.errors[:name].first
+  end
 end
