@@ -31,6 +31,8 @@ gem 'bootstrap'
 gem 'devise'
 gem 'jquery-rails' # required by bootstrap
 
+gem 'faraday'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
