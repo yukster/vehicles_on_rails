@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_15_050329) do
+ActiveRecord::Schema.define(version: 2019_05_17_171904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -66,6 +66,23 @@ ActiveRecord::Schema.define(version: 2019_05_15_050329) do
     t.index ["vehicle_model_id"], name: "index_vehicle_trims_on_vehicle_model_id"
   end
 
+  create_table "vehicles", force: :cascade do |t|
+    t.citext "vin", null: false
+    t.integer "year", null: false
+    t.bigint "vehicle_make_id", null: false
+    t.bigint "vehicle_model_id", null: false
+    t.bigint "vehicle_trim_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["vehicle_make_id"], name: "index_vehicles_on_vehicle_make_id"
+    t.index ["vehicle_model_id"], name: "index_vehicles_on_vehicle_model_id"
+    t.index ["vehicle_trim_id"], name: "index_vehicles_on_vehicle_trim_id"
+    t.index ["vin"], name: "index_vehicles_on_vin", unique: true
+  end
+
   add_foreign_key "vehicle_models", "vehicle_makes", on_delete: :cascade
   add_foreign_key "vehicle_trims", "vehicle_models", on_delete: :cascade
+  add_foreign_key "vehicles", "vehicle_makes", on_delete: :cascade
+  add_foreign_key "vehicles", "vehicle_models", on_delete: :cascade
+  add_foreign_key "vehicles", "vehicle_trims", on_delete: :cascade
 end
