@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 # == Schema Information
-# Schema version: 20190515050329
+# Schema version: 20190517171904
 #
 # Table name: vehicle_trims
 #
 #  id               :bigint           not null, primary key
-#  citext           :string           not null
-#  vehicle_model_id :integer          not null
+#  name             :citext           not null
+#  vehicle_model_id :bigint           not null
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #
