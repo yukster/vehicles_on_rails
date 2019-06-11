@@ -45,4 +45,15 @@ class UserTest < ActiveSupport::TestCase
     assert_equal "can't be blank", user.errors[:email].first
     assert_equal "can't be blank", user.errors[:password].first
   end
+
+  test 'can create user' do
+    user = User.new(email: 'foo@boo.com', password: 'totallysecret')
+    assert user.save
+    assert_equal 'foo@boo.com', user.reload.email
+  end
+
+  test 'test factory' do
+    user = FactoryBot.create(:user)
+    assert user.persisted?
+  end
 end

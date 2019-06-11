@@ -26,4 +26,9 @@ FactoryBot.define do
     sequence(:name) { |n| "Bauer#{n}" }
     association :vehicle_model
   end
+
+  factory :user do
+    sequence(:email) { |n| "foo#{n}@boo.com" }
+    password { 'totallysecret!' }
+  end
 end
